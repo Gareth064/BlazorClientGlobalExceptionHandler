@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35209.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorClientGlobalExceptionHandler", "BlazorClientGlobalExceptionHandler\BlazorClientGlobalExceptionHandler.csproj", "{8AE3C305-868C-46E6-A05A-DD2B03FA572C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorClientGlobalExceptionHandler.Client", "BlazorClientGlobalExceptionHandler.Client\BlazorClientGlobalExceptionHandler.Client.csproj", "{C2D579C9-7F75-437C-B1B1-0242C643D9F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AE3C305-868C-46E6-A05A-DD2B03FA572C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE3C305-868C-46E6-A05A-DD2B03FA572C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE3C305-868C-46E6-A05A-DD2B03FA572C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AE3C305-868C-46E6-A05A-DD2B03FA572C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2D579C9-7F75-437C-B1B1-0242C643D9F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2D579C9-7F75-437C-B1B1-0242C643D9F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2D579C9-7F75-437C-B1B1-0242C643D9F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2D579C9-7F75-437C-B1B1-0242C643D9F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4B9FC0E-4F1E-4C52-A1B0-42FC7B158859}
+	EndGlobalSection
+EndGlobal

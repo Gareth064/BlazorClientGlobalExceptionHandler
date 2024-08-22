@@ -1,0 +1,30 @@
+﻿@page "/"
+@using BlazorClientGlobalExceptionHandler.Client.Services.ErrorHandling
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+<button class="btn btn-primary" @onclick="ThrowException">Throw exception</button>
+<button class="btn btn-primary" @onclick="GetExceptions">Get exceptions</button>
+
+<p>Count of Exceptions: @errors.Count</p>
+
+Welcome to your new app.
+
+@code{
+
+    List<string> errors = new List<string>();
+
+    private void ThrowException()
+    {
+        throw new Exception("An unhandled exception occurred from me to you");
+    }
+
+    private void GetExceptions()
+    {
+        errors.Clear();
+        ErrorNotificaitonService.GetExceptions().ForEach(e => errors.Add(e.Message));
+        StateHasChanged();
+    }
+}
