@@ -1,59 +1,25 @@
 ﻿@implements IDisposable
 
-<style type="text/css">
-    .error-overlay {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        background: black;
-        opacity: 0.25;
-        z-index: 5000;
-    }
-
-    .error-content {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        background: transparent;
-        z-index: 5001;
-    }
-</style>
-
-
-@if (Exceptions.Count > 0)
-{
-    <div class="error-overlay"></div>
-
-    <div class="error-content d-grid" style="place-content: center">
-        <div class="card">
-            <div class="card-header bg-danger text-white">
-                <h5 class="m-0">Unexpected Error</h5>
-            </div>
-            <div class="card-body">
-                <p>Oops, unexpected error occured!</p>
-                <p>There are @Exceptions.Count error(s) occured.</p>
-                @foreach (var Error in Exceptions)
-                {
-                    <pre class="bg-secondary p-3" style="--bs-bg-opacity: 0.25">@Error.Message</pre>
-                    <hr />
-                }
-            </div>
-            <div class="card-footer d-flex">
-                <button type="button" class="btn btn-secondary ms-auto" @onclick="OnHandle">OK</button>
-            </div>
-        </div>
-    </div>
-
-
-}
+<MudDialog @bind-Visible="_visible" Options="_dialogOptions">
+    <TitleContent>
+        <MudText Typo="Typo.h6">Oops, unexpected error occured!</MudText>
+    </TitleContent>
+    <DialogContent>
+        @foreach (var Error in Exceptions)
+        {
+            <MudAlert Severity="Severity.Error">@Error.Message</MudAlert>
+        }
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="OnHandle" Class="px-10">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
 
 @code {
-
     List<Exception> Exceptions = new List<Exception>();
+
+    private bool _visible;
+    private readonly DialogOptions _dialogOptions = new() { FullWidth = true };
 
     protected override void OnInitialized()
     {
@@ -63,12 +29,14 @@
     private void ErrorNotificaitonService_OnError()
     {
         Exceptions = ErrorNotificaitonService.GetExceptions();
+        _visible = true;
         StateHasChanged();
     }
 
     private void OnHandle()
     {
         Exceptions = new List<Exception>();
+        _visible = false;
         StateHasChanged();
     }
 

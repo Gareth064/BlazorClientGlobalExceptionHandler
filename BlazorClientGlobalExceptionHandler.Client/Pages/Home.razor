@@ -3,14 +3,13 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<MudText Typo="Typo.h4">Hello, world!</MudText>
+<br />
+<MudButton Variant="Variant.Filled" Color="Color.Error" Class="ma-2" OnClick="ThrowException">Throw Exception</MudButton>
+<br />
+<MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ma-2" OnClick="GetExceptions">Get Exceptions</MudButton>
 
-<button class="btn btn-primary" @onclick="ThrowException">Throw exception</button>
-<button class="btn btn-primary" @onclick="GetExceptions">Get exceptions</button>
-
-<p>Count of Exceptions: @errors.Count</p>
-
-Welcome to your new app.
+<MudText Class="ma-2">Count of Exceptions: @errors.Count</MudText>
 
 @code{
 
