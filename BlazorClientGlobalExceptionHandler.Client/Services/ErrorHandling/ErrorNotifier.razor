@@ -7,7 +7,7 @@
     <DialogContent>
         @foreach (var Error in Exceptions)
         {
-            <MudAlert Severity="Severity.Error">@Error.Message</MudAlert>
+            <MudAlert Severity="Severity.Error" Class="mb-2">@Error.Message</MudAlert>
         }
     </DialogContent>
     <DialogActions>
